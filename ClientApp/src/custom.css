@@ -1,0 +1,37 @@
+html {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
+body {
+  background-image: url('./components/images/bg-crosshatch.png');
+  color: white;
+  height: 100%;
+}
+
+.home-login-col {
+  text-align: right;
+}
+
+header {
+  background-color: black;
+  color: white;
+}
+
+.login-form {
+  width: 95%;
+  margin: 10px;
+}
+
+.register-form {
+  margin: 5px;
+  width: 80%;
+}
+
+.validation-text {
+  margin-left: 5px;
+  color: red;
+}
+
+.btn {
+  margin: 10px;
+}
