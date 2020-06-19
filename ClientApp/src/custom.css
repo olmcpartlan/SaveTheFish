@@ -35,3 +35,20 @@ header {
 .btn {
   margin: 10px;
 }
+
+.fa-spin {
+  color: black;
+  width: 20px;
+}
+
+.black-text {
+  color: black;
+}
+
+.fa-success {
+  color: green;
+}
+
+.fa-failure {
+  color: red;
+}

@@ -9,7 +9,7 @@ using savethefish.Models;
 namespace savethefish.Migrations
 {
     [DbContext(typeof(dbContext))]
-    [Migration("20200615014217_newMigrations")]
+    [Migration("20200619150438_newMigrations")]
     partial class newMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,8 +22,10 @@ namespace savethefish.Migrations
 
             modelBuilder.Entity("savethefish.Models.User", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");

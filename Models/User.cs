@@ -21,4 +21,11 @@ namespace savethefish.Models
     public int userId { get; set; }
   }
 
+  public class EmailValidationResponse
+  {
+    public string ResponseMessage { get; set; }
+    public bool isMatch { get; set; }
+  }
+
+
 }
