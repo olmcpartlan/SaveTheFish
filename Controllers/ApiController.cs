@@ -29,18 +29,15 @@ namespace savethefish.Controllers
     [HttpPost("newuser")]
     public RegistrationResponse NewUser([FromBody] object body)
     {
-
-      List<User> users = _dbContext.users.ToList();
-
-      User user = JsonConvert.DeserializeObject<User>(body.ToString());
+      User user = new User().CreateNewUser(body);
 
       _dbContext.users.Add(user);
-
       _dbContext.SaveChanges();
+
 
       return new RegistrationResponse()
       {
-        responseMessage = "yes everythings fine dont worry about it",
+        responseMessage = "Success",
         userId = user.UserId
       };
     }
@@ -49,8 +46,9 @@ namespace savethefish.Controllers
     public EmailValidationResponse CheckEmail([FromBody] object body)
     {
       var dict = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(body.ToString());
-      string email = dict.Values.First();
 
+
+      string email = dict.Values.First();
       User matchedUser = _dbContext.users.FirstOrDefault(u => u.Email == email);
 
       if(matchedUser != null)

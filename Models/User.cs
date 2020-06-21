@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Newtonsoft.Json;
+using System;
+using BCrypt.Net;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +17,13 @@ namespace savethefish.Models
     public string ImageUrl { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
+    public User CreateNewUser(object body)
+    {
+      User newUser = JsonConvert.DeserializeObject<User>(body.ToString());
+      newUser.Password = Hasher.HashPassword(newUser);
+      return newUser;
+    }
+
   }
   public class RegistrationResponse
   {
